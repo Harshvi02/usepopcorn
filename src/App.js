@@ -1,25 +1,29 @@
-import './App.css';
+import "./index.css";
 
-function App() {
+export default function App() {
   return (
-    <div>
-       <NavBar />
-      App
-    </div>
+    <>
+      <NavBar />
+      <Main />
+    </>
   );
 }
 
-export default App;
+
+
 function NavBar() {
   return (
-    <nav>
+    <nav className="nav-bar">
       <h1>🍿 usePopcorn</h1>
-
-      <input
-        type="text"
-        placeholder="Search movies..."
-      />
+      <input type="text" placeholder="Search movies..." />
     </nav>
   );
 }
-
+function Main() {
+  return (
+    <main className="main">
+      <div className="box">Movie List</div>
+      <div className="box">Watched List</div>
+    </main>
+  );
+}
