@@ -36,17 +36,21 @@ function NavBar() {
 }
 function Main() {
   return (
-    <main className="main">
-      <div className="box">
-        <MovieList movies={tempMovies} />
-      </div>
+    
+    
+<main className="main">
+  <Box>
+    <MovieList movies={tempMovies} />
+  </Box>
 
-      <div className="box">
-        Watched List
-      </div>
-    </main>
+  <Box>
+    Watched List
+  </Box>
+</main>
+
   );
 }
+
 
 function MovieList({ movies }) {
   return (
@@ -60,10 +64,14 @@ function MovieList({ movies }) {
 function Movie({ movie }) {
   return (
     <li>
-      <img src={movie.Poster} alt={movie.Title} width="40" />
-      
+      <img src={movie.Poster} alt={movie.Title} />
+      <h3>{movie.Title}</h3>
       <p>{movie.Year}</p>
     </li>
   );
 }
+function Box({ children }) {
+  return <div className="box">{children}</div>;
+}
+
 
