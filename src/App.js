@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 import "./index.css";
 const tempMovies = [
@@ -9,45 +10,58 @@ const tempMovies = [
   },
   {
     imdbID: "tt1375666",
-    Title: "Inception",
+    Title: 
+"Inception",
     Year: "2010",
     Poster: "https://m.media-amazon.com/images/M/MV5BMmFlZjQwYzItN2NhMC00ZDJhLTg1YzUtYzZjZjNjOGZjNWJhXkEyXkFqcGc@._V1_SX300.jpg",
   },
 ];
 
+
 export default function App() {
+  const [query, setQuery] = useState("");
+
   return (
     <>
-      <NavBar />
-      <Main />
+      <NavBar query={query} setQuery={setQuery} />
+      <Main query={query} />
     </>
   );
 }
 
 
 
-function NavBar() {
+
+
+function NavBar({ query, setQuery }) {
   return (
     <nav className="nav-bar">
       <h1>🍿 usePopcorn</h1>
-      <input type="text" placeholder="Search movies..." />
+
+      <input
+        type="text"
+        placeholder="Search movies..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
     </nav>
   );
 }
-function Main() {
+
+
+function Main({ query }) {
+  const filteredMovies = tempMovies.filter((movie) =>
+    movie.Title.toLowerCase().includes(query.toLowerCase())
+  );
+
   return (
-    
-    
-<main className="main">
-  <Box>
-    <MovieList movies={tempMovies} />
-  </Box>
+    <main className="main">
+      <Box>
+        <MovieList movies={filteredMovies} />
+      </Box>
 
-  <Box>
-    Watched List
-  </Box>
-</main>
-
+      <Box>Watched List</Box>
+    </main>
   );
 }
 
