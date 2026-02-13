@@ -286,10 +286,15 @@ body {
   padding: 2rem 2.4rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
+
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+
+  align-items: center;   /* ADD THIS */
 }
+
+
 
 .btn-add {
   background-color: var(--color-primary);
@@ -301,7 +306,10 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
+
+  width: 100%;           /* ADD THIS */
 }
+
 
 .btn-add:hover {
   background-color: var(--color-primary-light);
